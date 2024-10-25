@@ -1,0 +1,27 @@
+name: mlgeo-jensencc
+
+channels:
+  - conda-forge
+
+dependencies:
+  - python=3.10
+
+  - dask
+  - earthengine-api
+  - geemap
+  - geopandas
+  - gdal
+  - jupyterlab
+  - matplotlib
+  - numpy
+  - pandas
+  - pip
+  - rasterio
+  - rioxarray
+  - xarray
+
+  - pip:
+      - git+https://github.com/fastice/grimpfunc.git@master
+      - git+https://github.com/fastice/grimpqgis.git@master
+      - git+https://github.com/fastice/nisardev.git@main
+      - git+https://github.com/developmentseed/rio-stac@main
