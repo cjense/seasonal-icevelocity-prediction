@@ -66,8 +66,25 @@ To use this notebook, you must have a NASA EarthData account. The workflow neces
 
 ### plot_timeseries
 
-Examples of annual plots, point data extraction, and time series plots generated using the `nisar.VelocitySeries()` data.
+Exploratory data analysis - examples of annual plots, point data extraction, and time series plots generated using the `nisar.VelocitySeries()` raw data. 
 
-### extract_flowlines
+### clean_data
 
-Work in progress. Extract velocity data at flowlines to construct time series of them.
+Remove NaNs and zeroes from the vv band and create a new dataset. NaNs and zeroes are often representative of lapses in data collection or errors in collection and/or processing of raw satellite data. We will optimize the data for ML by removing erreneous data.
+
+### dimensionality_reduction
+
+Perform dimensionality reduction uisng principal component anlaysis (PCA) on the data to extract features.
+
+### calculate_statistics
+
+Calculate the mean, median, and variance of the data. Useful for understanding the distribution of the data before funneling into an ML model and analyzing.
+
+### plot_histogram
+
+Plot a histogram, count the total points, and calculate the mean, median, and variance of the data. Useful for understanding the distribution of the data before funneling into an ML model and analyzing.
+
+## References
+
+1. [Moon, T., Joughin, I., Smith, B., & Howat, I. (2020). 21st-century evolution of Greenland outlet glacier velocities. Science Advances, 6(24), eaaz9541.](https://doi.org/10.1126/sciadv.aaz9541)
+2. [Joughin, I., Smith, B. E., Shean, D. E., & Floricioiu, D. (2012). Brief Communication: Further summer speedup of Jakobshavn Isbræ. The Cryosphere, 6(2), 529–531.](https://doi.org/10.1029/2012GL051634)
