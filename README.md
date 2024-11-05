@@ -30,6 +30,7 @@ This project has tiers of objectives that will be completed in order:
 ### Tier 4
 
 - [ ] Incorporate terminus position and meltwater discharge into model to improve predictions
+- [ ] Predict **seasonal** velocity values on the entire glacier area for all Greenland glaciers
 
 ## How to use this repository
 
