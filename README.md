@@ -14,15 +14,18 @@ This project has tiers of objectives that will be completed in order:
 
 - [ ] Predict **annual** velocity values of ZI 10 years into the future
 - [ ] Define metric to measure accuracy of prediction
+- [ ] Use random forest to predict velocities along a flowline
 
 ### Tier 2
 
 - [ ] Predict **seasonal** velocity values of ZI 10 years into the future
 - [ ] Compare annual velocity values of ZI with its neighbor, 79N
+- [ ] Use a large language model to predict values along the flowlines
 
 ### Tier 3
 
 - [ ] Predict seasonal velocity values of **all Greenland glaciers** 10 years into the future
+- [ ] Predict annual velocity values on the entire glacier area
 
 ### Tier 4
 
