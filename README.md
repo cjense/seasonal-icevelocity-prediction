@@ -88,6 +88,10 @@ Calculate the mean, median, and variance of the data. Useful for understanding t
 
 Plot a histogram, count the total points, and calculate the mean, median, and variance of the data. Useful for understanding the distribution of the data before funneling into an ML model and analyzing.
 
+### extract_flowlinedata
+
+Extract velocity data at the location of flowlines (from [Felikson et al.](https://doi.org/10.1029/2020GL090112)). Instead of considering every point on the glacier, only take points from flowlines for faster processing.
+
 ## References
 
 1. [Moon, T., Joughin, I., Smith, B., & Howat, I. (2020). 21st-century evolution of Greenland outlet glacier velocities. Science Advances, 6(24), eaaz9541.](https://doi.org/10.1126/sciadv.aaz9541)
