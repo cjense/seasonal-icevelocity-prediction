@@ -12,25 +12,24 @@ This project has tiers of objectives that will be completed in order:
 
 ### Tier 1
 
-- [ ] Predict **annual** velocity values of ZI 10 years into the future
-- [ ] Define metric to measure accuracy of prediction
-- [ ] Use random forest to predict velocities along a flowline
+- [ ] Predict **annual** velocity values of middle, terminus, and upstream points at ZI 5 years into the future
+- [x] Define metric to measure accuracy of prediction
 
 ### Tier 2
 
-- [ ] Predict **seasonal** velocity values of ZI 10 years into the future
-- [ ] Compare annual velocity values of ZI with its neighbor, 79N
-- [ ] Use a large language model to predict values along the flowlines
+- [ ] Predict **seasonal** velocity values of middle, terminus, and upstream points at ZI 5 years into the future
+- [ ] Compare annual velocity values of ZI with its neighbor, 79N and its middle, terminus, and upstream points
+- [ ] Predict annual velocity values along ZI's middle flowline
 
 ### Tier 3
 
-- [ ] Predict seasonal velocity values of **all Greenland glaciers** 10 years into the future
-- [ ] Predict annual velocity values on the entire glacier area
+- [ ] Incorporate terminus position, temperature, and meltwater discharge into model to improve predictions
+- [ ] Predict seasonal velocity values along ZI's middle flowline with >80% accuracy
+- [ ] Predict annual velocity values along 79N's middle flowline, compare to ZI
 
 ### Tier 4
 
-- [ ] Incorporate terminus position and meltwater discharge into model to improve predictions
-- [ ] Predict **seasonal** velocity values on the entire glacier area for all Greenland glaciers
+- [ ] Predict annual velocity values along middle flowlines for 10 Greenland glaciers
 
 ## How to use this repository
 
@@ -58,7 +57,7 @@ The prune option will uninstall any dependencies that were removed from `environ
 
 ## Notebook Descriptions
 
-### download_grimp_veldata
+### 1_download_grimp_veldata
 
 Provides functionality for downloading velocity data from the [Greenland Ice Sheet Mapping Project (GrIMP)](https://nsidc.org/grimp). It currently has functionality for downloading ZI velocity data.
 
@@ -68,29 +67,25 @@ This notebook draws heavily on code from the [GrIMP Notebooks](https://github.co
 
 To use this notebook, you must have a NASA EarthData account. The workflow necessary for setting this up for the first time can be found here: [NSIDCLoginNotebook](https://github.com/fastice/GrIMPNotebooks/blob/master/NSIDCLoginNotebook.ipynb).
 
-### plot_timeseries
+### 2_clean_data
 
-Exploratory data analysis - examples of annual plots, point data extraction, and time series plots generated using the `nisar.VelocitySeries()` raw data. 
+Remove NaNs and zeroes from the data. NaNs and zeroes are often representative of lapses in data collection or errors in collection and/or processing of raw satellite data. We will optimize the data for ML by removing erreneous data and interpolating to fill in the gaps.
 
-### clean_data
+### 3_calculate_statistics
 
-Remove NaNs and zeroes from the vv band and create a new dataset. NaNs and zeroes are often representative of lapses in data collection or errors in collection and/or processing of raw satellite data. We will optimize the data for ML by removing erreneous data.
+Calculate the mean, median, and variance of the data. Also plot a correlation matrix to analyze the relationship between the data variables. Useful for understanding the distribution of the data before funneling into an ML model and analyzing.
 
-### dimensionality_reduction
+### 4_plot_timeseries
 
-Perform dimensionality reduction uisng principal component anlaysis (PCA) on the data to extract features.
+Exploratory data analysis - examples of annual plots, point data extraction, and time series plots generated using the `nisar.VelocitySeries()` raw data and flowlines.
 
-### calculate_statistics
+### 5_dimensionality_reduction
 
-Calculate the mean, median, and variance of the data. Useful for understanding the distribution of the data before funneling into an ML model and analyzing.
+Perform dimensionality reduction uisng principal component anlaysis (PCA) on the data to extract features. Use Kmeans clustering to classify the data.
 
-### plot_histogram
+### 6_hyperparam_cv
 
-Plot a histogram, count the total points, and calculate the mean, median, and variance of the data. Useful for understanding the distribution of the data before funneling into an ML model and analyzing.
-
-### extract_flowlinedata
-
-Extract velocity data at the location of flowlines (from [Felikson et al.](https://doi.org/10.1029/2020GL090112)). Instead of considering every point on the glacier, only take points from flowlines for faster processing.
+Perform cross-validation to determine which model predicts most accurately on test and training data based on the mean squared error (MSE) and error plots. Tune the chosen model to determine
 
 ## References
 
