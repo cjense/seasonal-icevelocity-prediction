@@ -35,6 +35,7 @@ dependencies:
   - tiledb
   
   - pip:
+      - uni2ts
       - git+https://github.com/fastice/grimpfunc.git@master
       - git+https://github.com/fastice/grimpqgis.git@master
       - git+https://github.com/fastice/nisardev.git@main
