@@ -22,6 +22,7 @@ dependencies:
   - jupyterlab>=3
   - nbgitpuller
   - numpy
+  - osgeo
   - pandas>=2.1.2
   # As of November 22, panel 1.3.2 and param 2.0 not working. So for now pin
   - panel<1
@@ -36,6 +37,6 @@ dependencies:
   
   - pip:
       - uni2ts
-      - git+https://github.com/fastice/grimpfunc.git@master
-      - git+https://github.com/fastice/grimpqgis.git@master
-      - git+https://github.com/fastice/nisardev.git@main
+      - grimpfunc @ git+https://github.com/fastice/grimpfunc.git@master
+      - grimpqgis @ git+https://github.com/fastice/grimpqgis.git@master
+      - nisardev @ git+https://github.com/fastice/nisardev.git@main
